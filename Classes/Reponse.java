@@ -8,10 +8,9 @@ public class Reponse {
 	public boolean rep_valeur;
 	public boolean rep_actif;
 
-	public Reponse(Boolean b) {
+	public Reponse() {
 		this.rep_id = i;
 		i++;
-		this.rep_valeur = b;
 		this.rep_actif = false;
 
 	}
