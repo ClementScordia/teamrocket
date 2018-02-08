@@ -1,6 +1,5 @@
 package projetsportif;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Reponse {
@@ -8,40 +7,62 @@ public class Reponse {
 	private static int i = 0;
 	public boolean rep_valeur;
 	public boolean rep_actif;
-	public int rep_quest_id;
 
-	public Reponse(Question q) {
+	public Reponse(Boolean b) {
 		this.rep_id = i;
 		i++;
-		this.rep_valeur = q.isQst_default();
+		this.rep_valeur = b;
 		this.rep_actif = false;
-		this.rep_quest_id = q.getQst_id();
 
 	}
 
 	@SuppressWarnings("resource")
 	void repondre() {
-		if (this.rep_actif == false) {
-			System.out.println("La question n'est plus active");
-		} else {
 
-			System.out.println("Saisir une valeur 1->Oui 0->Non");
+		System.out.println("Saisir une valeur true ou false");
+		Scanner sc = new Scanner(System.in);
+		try {
 
-			Scanner sc = new Scanner(System.in);
-			this.rep_valeur = sc.nextBoolean();
-
-			this.rep_actif = false;
+			if (this.rep_actif == false) {
+				System.out.println("La question n'est plus active");
+			} else {
+				String str = sc.nextLine();
+				if (("true".equals(str)) || ("false".equals(str))) {
+					this.rep_valeur = Boolean.parseBoolean(str);
+					this.rep_actif = false;
+				} else {
+					System.out.println("Valeurs érronées ");
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("Valeurs érronées ");
 		}
 	}
 
 	@SuppressWarnings("resource")
-	void modifierReponse(boolean b) {
-		this.rep_actif = false;
-		System.out.println("Saisir une valeur 1->Oui 0->Non");
+	void modifierReponse() {
 
+		System.out.println("Saisir une valeur true ou false");
 		Scanner sc = new Scanner(System.in);
-		this.rep_valeur = sc.nextBoolean();
+		try {
 
+			String str = sc.nextLine();
+			if (("true".equals(str)) || ("false".equals(str))) {
+
+				this.rep_valeur = Boolean.parseBoolean(str);
+				this.rep_actif = false;
+			} else {
+				System.out.println("Valeurs érronées ");
+			}
+
+		} catch (Exception e) {
+			System.out.println("Valeurs érronées ");
+		}
+
+	}
+
+	void setRepActive() {
+		this.rep_actif = true;
 	}
 
 	int getRepId() {
@@ -55,5 +76,4 @@ public class Reponse {
 	boolean getRepEtat() {
 		return this.rep_actif;
 	}
-
 }
