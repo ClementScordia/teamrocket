@@ -1,5 +1,6 @@
 package projetsportif;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Reponse {
@@ -12,32 +13,35 @@ public class Reponse {
 	public Reponse(Question q) {
 		this.rep_id = i;
 		i++;
-		this.rep_valeur = q.getValeurParDefaut();
+		this.rep_valeur = q.isQst_default();
 		this.rep_actif = false;
-		this.rep_quest_id = q.getId();
+		this.rep_quest_id = q.getQst_id();
+
 	}
 
+	@SuppressWarnings("resource")
 	void repondre() {
 		if (this.rep_actif == false) {
 			System.out.println("La question n'est plus active");
 		} else {
-			
+
 			System.out.println("Saisir une valeur 1->Oui 0->Non");
-			
+
 			Scanner sc = new Scanner(System.in);
 			this.rep_valeur = sc.nextBoolean();
-			
+
 			this.rep_actif = false;
 		}
 	}
 
+	@SuppressWarnings("resource")
 	void modifierReponse(boolean b) {
 		this.rep_actif = false;
 		System.out.println("Saisir une valeur 1->Oui 0->Non");
-		
+
 		Scanner sc = new Scanner(System.in);
 		this.rep_valeur = sc.nextBoolean();
-		
+
 	}
 
 	int getRepId() {
