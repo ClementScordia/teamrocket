@@ -55,13 +55,13 @@ public class Question {
 			
 			String result;
 			
-			result = "\n Intitulé : "+this.getQst_intitule();
+			result = " Intitulé : \n"+this.getQst_intitule();
 			
 			
-			result += "\n Default : "+this.isQst_default();
+			result += " Default : \n"+this.isQst_default();
 			
 			
-			result+= "\n ID : "+this.getQst_id();
+			result+= " ID : \n"+this.getQst_id();
 			
 			return result;
 		}
