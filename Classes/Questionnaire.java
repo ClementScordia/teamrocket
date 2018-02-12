@@ -12,14 +12,13 @@ public class Questionnaire {
 	private String nom;
 	private Date dateDebut;
 	private Date dateFin;
-	
+	private int indiceQuestion;
 	
 	
 
 
-	private ArrayList listeQuestion;
+	private ArrayList<Question> listeQuestion;
 	
-	//public ArrayList listeQuestionnaire;
 	
 	
 	public Questionnaire(String nom, Date dateD, Date dateF)
@@ -29,6 +28,7 @@ public class Questionnaire {
 		this.dateFin=dateF;
 		this.etat = "creation";
 		this.listeQuestion = new ArrayList<Question>();	
+		this.indiceQuestion=0;
 	}
 	
 	
@@ -36,7 +36,7 @@ public class Questionnaire {
 	{
 		int i;
 		String res;
-		res =  "Nom du questionnaire : "+this.nom+"\nDate de début : "+this.dateDebut+"\nDate de fin : "+this.dateFin;
+		res =  "Nom du questionnaire : "+this.nom+"\nDate de début : "+this.dateDebut+"\nDate de fin : "+this.dateFin+"\n";
 		for (i=0;i<this.listeQuestion.size();i++)
 		{
 			res = res+((Question) listeQuestion.get(i)).toString();
@@ -53,8 +53,32 @@ public class Questionnaire {
 	}
 	
 	
+	public void ajouterQuestion(String intitule, boolean defaut)
+	{
+		Question q = new Question(intitule,defaut);
+		this.listeQuestion.add(this.indiceQuestion,q);
+		this.indiceQuestion++;
+	}
 	
+	public void supprimerQuestion(int indiceQuestion)
+	{
+		this.listeQuestion.remove(this.listeQuestion.get(indiceQuestion));
+	}
 	
+	public void changerDateDebut(Date d)
+	{
+		this.dateDebut=d;
+	}
+	
+	public void modifierNomQuestion(String nom, int indiceQuestion)
+	{
+		this.listeQuestion.get(indiceQuestion).Intituler(nom);
+	}
+	
+	public void modifierValeurDefaultQuestion(boolean defaut, int indiceQuestion)
+	{
+		this.listeQuestion.get(indiceQuestion).AppliquerDefault(defaut);
+	}
 	
 	
 	
