@@ -19,19 +19,18 @@ public class Question {
 		}
 		
 
-
-		public void Intituler(String param)
+		public void Intituler(String Intitule)
 		{
 		
-			this.qst_intitule = param ;
+			this.qst_intitule = Intitule ;
 			
 		}
 		
 		
-		public void AppliquerDefault(boolean param)
+		public void AppliquerDefault(boolean leDefault)
 		{
 
-			this.qst_default = param;
+			this.qst_default = leDefault;
 		}
 
 
@@ -56,13 +55,13 @@ public class Question {
 			
 			String result;
 			
-			result = "Intitulé : "+this.getQst_intitule();
+			result = "\n Intitulé : "+this.getQst_intitule();
 			
 			
-			result += " Default : "+this.isQst_default();
+			result += "\n Default : "+this.isQst_default();
 			
 			
-			result+= "ID : "+this.getQst_id();
+			result+= "\n ID : "+this.getQst_id();
 			
 			return result;
 		}
