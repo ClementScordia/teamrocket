@@ -2,91 +2,36 @@ import java.util.Scanner;
 
 public class Question {
 	
-		int qst_id;
-		String qst_intitule;
-		boolean qst_default ; 
+		private int qst_id;
+		private String qst_intitule;
+		private boolean qst_default ; 
 		private static int i=0;
-		private  String un ="1";
-		private  String zero ="0";
 		
-		public Question(Reponse R)
+		
+		public Question(String intitule, boolean qdefault )
 		{
 			
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Veuillez saisir l'intitule de la question :");
-			this.qst_intitule = sc.nextLine();
-			
-			int t=0;
-			String var = "";
-			Scanner sca = new Scanner(System.in);
-			System.out.println("Réponse par défault ? (1 pour Oui ,0 pour Non )");
-			var = sca.nextLine();
-			System.out.println("VALEUR DE VAR : "+var);
-			while (t != 1 )
-			{
-				
-				if ( !(this.un.equals(var)) && !(this.zero.equals(var)))
-				{
-					 sca = new Scanner(System.in);
-					System.out.println("Veuillez remplir les champs correctement : 1 pour Oui 0 pour Non");
-					var = sca.nextLine();
-				}
-				
-				else {
-					t = 1 ;
-				}
-			}
-			if (this.un.equals(var)) {
-				this.qst_default = true ;
-			}
-			else if (this.zero.equals(var)) {
-				this.qst_default = false;
-			}
-			
-			
+			this.qst_default = qdefault;
+			this.qst_intitule = intitule;
 			this.qst_id = i;
 			i++;
-			R.rep_valeur = qst_default;
+		
 		}
 		
-		
-		public void Intituler()
+
+
+		public void Intituler(String param)
 		{
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Veuillez saisir l'intitule de la question:");
-			this.qst_intitule = sc.nextLine();
+		
+			this.qst_intitule = param ;
 			
 		}
 		
 		
-		public void AppliquerDefault()
+		public void AppliquerDefault(boolean param)
 		{
-			int t=0;
-			String var = "";
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Réponse par défault ? (1 pour Oui ,0 pour Non )");
-			var = sc.nextLine();	
-			while (t != 1 )
-			{
-				
-				if ( !(this.un.equals(var)) && !(this.zero.equals(var)))
-				{
-					 sc = new Scanner(System.in);
-					System.out.println("Veuillez remplir les champs correctement : 1 pour Oui 0 pour Non");
-					var = sc.nextLine();
-				}
-				
-				else {
-					t = 1 ;
-				}
-			}
-			if (this.un.equals(var)) {
-				this.qst_default = true ;
-			}
-			else if (this.zero.equals(var)) {
-				this.qst_default = false;
-			}
-			
+
+			this.qst_default = param;
 		}
 
 
@@ -106,15 +51,20 @@ public class Question {
 		
 		
 		
-		public void afficher()
+		public String toString()
 		{
-			System.out.println("Intitulé : "+this.getQst_intitule());
+			
+			String result;
+			
+			result = "Intitulé : "+this.getQst_intitule();
 			
 			
-			System.out.println("Default : "+this.isQst_default());
+			result += " Default : "+this.isQst_default();
 			
 			
-			System.out.println("ID : "+this.getQst_id());
+			result+= "ID : "+this.getQst_id();
+			
+			return result;
 		}
 		
 	
@@ -122,25 +72,7 @@ public class Question {
 
 
 
-public static void main(String[] args)
 
-{
-	
-	Reponse R = new Reponse();
-	Question Q = new Question(R) ;
-	
-//	Q.Intituler(); 
-	
-	System.out.println("Intitulé : "+Q.getQst_intitule());
-	
-//	Q.AppliquerDefault();
-	
-	System.out.println("Default : "+Q.isQst_default());
-	
-	
-	System.out.println("ID : "+Q.getQst_id());
-	
-}
 
 
 }
