@@ -1,45 +1,76 @@
 package projetsportif;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class TestReponse {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Reponse rep= new Reponse();
-		Question q = new Question(rep);
-		q.AppliquerDefault();
-		
-		
-		
-		System.out.println("etat1:"+rep.getRepEtat());
-		System.out.println("valeur1:"+rep.getRepValeur());
-		
-		rep.modifierReponse();
-		System.out.println("etat5:"+rep.getRepEtat());
-		System.out.println("valeur5:"+rep.getRepValeur());
-		
-		rep.setRepActive();
-		System.out.println("etat2:"+rep.getRepEtat());
-		System.out.println("valeur2:"+rep.getRepValeur());
-
-		
-		rep.repondre();
-		System.out.println("etat3:"+rep.getRepEtat());
-		System.out.println("valeur3:"+rep.getRepValeur());
+		Scanner sc;
+		Reponse rep = new Reponse();
+		boolean test = false;
+		System.out.println(rep.getRepDate());
 		
 		
-		rep.repondre();
-		System.out.println("etat4:"+rep.getRepEtat());
-		System.out.println("valeur4:"+rep.getRepValeur());
 		
+		
+		while(test==false)
+		{
+			System.out.println("Saisir une valeur true ou false");
+			sc = new Scanner(System.in);
+			try {
+					String str = sc.nextLine();
+					System.out.println(str);
+					if (("true".equals(str)) || ("false".equals(str))|| ("1".equals(str))|| ("0".equals(str))) {
+						boolean b = Boolean.parseBoolean(str);
+						System.out.println(b);
+						rep.addReponse(b);
+						test=true;
+					} else {
+						System.out.println("Valeurs érronées ::");
+					}
+			
+			}catch (Exception e) {
+				System.out.println("Valeurs érronées.");
+			}
+		}
+		
+		System.out.println(rep.getRepDate());
+		ArrayList<Boolean> tab = rep.getRepListe();
+		for(int i=0;i<tab.size();i++)
+		{
+			System.out.println(tab.get(i));
+		}
+		test=false;
+		
+		
+		while(test==false)
+		{
+			System.out.println("Saisir une valeur true ou false");
+			try { 
+				sc = new Scanner(System.in);
+				String str = sc.nextLine();
+				System.out.println(str);
+				if (("true".equals(str)) || ("false".equals(str))|| ("1".equals(str))|| ("0".equals(str))) {
+					
+					rep.addReponse(Boolean.parseBoolean(str));
+					test=true;
+				} else {
+					System.out.println("Valeurs érronées ::");
+				}
 	
-		rep.modifierReponse();
-		System.out.println("etat5:"+rep.getRepEtat());
-		System.out.println("valeur5:"+rep.getRepValeur());
+			} catch (Exception e) {
+				System.out.println("Valeurs érronées.");
+			}
+		}
 		
-		rep.modifierReponse();
-		System.out.println("etat6:"+rep.getRepEtat());
-		System.out.println("valeur6:"+rep.getRepValeur());
+		System.out.println(rep.getRepDate());
+		tab = rep.getRepListe();
+		for(int i=0;i<tab.size();i++)
+		{
+			System.out.println(tab.get(i));
+		}
 		
 	}
 
