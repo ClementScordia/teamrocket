@@ -7,24 +7,23 @@ public class Reponse {
 
 	private ArrayList<Boolean> rep_listeReponse;
 	private Date rep_datereponse;
-	private int iterateur;
+	private int taillemax;
 
 	public Reponse(int tailleListe) {
-		this.rep_listeReponse = new ArrayList<Boolean>(tailleListe);
+		this.rep_listeReponse = new ArrayList<Boolean>();
 		this.rep_datereponse = new Date();
-		this.iterateur = 0;
+		this.taillemax = tailleListe;
 	}
 
 	public Reponse(ArrayList<Boolean> listeRepDefaut) {
 		this.rep_listeReponse = listeRepDefaut;
 		this.rep_datereponse = new Date();
-		this.iterateur = 0;
+		this.taillemax = listeRepDefaut.size();
 	}
 
 	void addReponse(boolean nvBooleen) {
-		if (this.iterateur <= this.rep_listeReponse.size()) {
+		if (this.taillemax >= this.rep_listeReponse.size()) {
 			this.rep_listeReponse.add(nvBooleen);
-			this.iterateur++;
 		} else {
 			System.out.println("Total de réponse atteint");
 		}
