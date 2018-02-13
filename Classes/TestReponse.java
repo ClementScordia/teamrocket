@@ -1,10 +1,12 @@
 package projetsportif;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class TestReponse {
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc;
@@ -17,11 +19,11 @@ public class TestReponse {
 			sc = new Scanner(System.in);
 			try {
 				String str = sc.nextLine();
-				if (("true".equals(str)) || ("false".equals(str)) || ("1".equals(str)) || ("0".equals(str))) {
+				if (("true".equals(str)) || ("false".equals(str))) {
 					rep.addReponse(Boolean.parseBoolean(str));
 					test = true;
 				} else {
-					System.out.println("Valeurs érronées ::");
+					System.out.println("Valeurs érronées.");
 				}
 
 			} catch (Exception e) {
@@ -42,12 +44,12 @@ public class TestReponse {
 				sc = new Scanner(System.in);
 				String str = sc.nextLine();
 			
-				if (("true".equals(str)) || ("false".equals(str)) || ("1".equals(str)) || ("0".equals(str))) {
+				if (("true".equals(str)) || ("false".equals(str)) ) {
 
 					rep.addReponse(Boolean.parseBoolean(str));
 					test = true;
 				} else {
-					System.out.println("Valeurs érronées ::");
+					System.out.println("Valeurs érronées.");
 				}
 
 			} catch (Exception e) {
@@ -69,12 +71,12 @@ public class TestReponse {
 				sc = new Scanner(System.in);
 				String str = sc.nextLine();
 			
-				if (("true".equals(str)) || ("false".equals(str)) || ("1".equals(str)) || ("0".equals(str))) {
+				if (("true".equals(str)) || ("false".equals(str))) {
 
 					rep.addReponse(Boolean.parseBoolean(str));
 					test = true;
 				} else {
-					System.out.println("Valeurs érronées ::");
+					System.out.println("Valeurs érronées .");
 				}
 
 			} catch (Exception e) {
@@ -87,7 +89,10 @@ public class TestReponse {
 		for (int i = 0; i < tab.size(); i++) {
 			System.out.println(tab.get(i));
 		}
-
+		
+		System.out.println(rep.getRepDate());
+		rep.setRepDate(new Date(118,6,10));
+		System.out.println(rep.getRepDate());
 	}
 
 }
