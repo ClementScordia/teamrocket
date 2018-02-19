@@ -65,10 +65,6 @@ public class Questionnaire {
 		this.listeQuestion.remove(this.listeQuestion.get(indiceQuestion));
 	}
 	
-	public void changerDateDebut(Date d)
-	{
-		this.dateDebut=d;
-	}
 	
 	public void modifierNomQuestion(String nom, int indiceQuestion)
 	{
@@ -80,7 +76,13 @@ public class Questionnaire {
 		this.listeQuestion.get(indiceQuestion).AppliquerDefault(defaut);
 	}
 	
-	
+	public void inverserQuestion(int indiceQuestion1, int indiceQuestion2)
+	{
+		Question tmp;
+		tmp = this.listeQuestion.get(indiceQuestion1);
+		this.listeQuestion.set(indiceQuestion1, this.listeQuestion.get(indiceQuestion2));
+		this.listeQuestion.set(indiceQuestion2, tmp);
+	}
 	
 	
 	
