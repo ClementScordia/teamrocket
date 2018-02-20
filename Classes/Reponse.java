@@ -43,6 +43,10 @@ public class Reponse {
 	}
 
 	void setRepDate(Date nvlleDate) {
-		this.rep_datereponse = nvlleDate;
+		if (this.rep_datereponse.after(nvlleDate)) {
+			System.out.println("La nouvelle date ne peut pas être avant l'ancienne date");
+		} else {
+			this.rep_datereponse = nvlleDate;
+		}
 	}
 }
