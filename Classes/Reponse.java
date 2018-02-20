@@ -10,9 +10,16 @@ public class Reponse {
 	private int taillemax;
 
 	public Reponse(int tailleListe) {
-		this.rep_listeReponse = new ArrayList<Boolean>();
-		this.rep_datereponse = new Date();
-		this.taillemax = tailleListe;
+		if(tailleListe<0)
+		{
+			System.out.println("Taille invalide");
+		}
+		else
+		{
+			this.rep_listeReponse = new ArrayList<Boolean>();
+			this.rep_datereponse = new Date();
+			this.taillemax = tailleListe;
+		}
 	}
 
 	public Reponse(ArrayList<Boolean> listeRepDefaut) {
