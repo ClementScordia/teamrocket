@@ -30,42 +30,90 @@ public class ListeQuestionnaire {
 		return ok;
 	}
 	
-	public void nouveauQuestionnaire(String nom, Date debut, Date fin)
+	public int nouveauQuestionnaire(String nom, Date debut, Date fin)
 	{
+		int res;
 		this.indiceQuestionnaire++;
 		Questionnaire q = new Questionnaire(nom,debut,fin);
 		if (this.isDateOk(debut, fin))
 		{
 			this.listeQuestionnaire.add(q);
+			res = indiceQuestionnaire;
 		}else{
 			System.out.println("Erreur de date");
+			res = -1;
 		}
-		
+		return res;
 	}
 	
 	
 	
 	
-	public void changerNomQuestionnnaire(String nom,int indiceQuestionnaire)
+	public int changerNomQuestionnnaire(String nom,int indiceQuestionnaire)
 	{
-		this.listeQuestionnaire.get(indiceQuestionnaire).changerNomQuestionnaire(nom);
+		int res;
+		if (this.listeQuestionnaire.get(indiceQuestionnaire) != null) //a tester
+		{
+			res = -1;
+		}else{
+			this.listeQuestionnaire.get(indiceQuestionnaire).changerNomQuestionnaire(nom);
+			res = indiceQuestionnaire;
+		}
+		return res;
 	}
-	public void changerDateDebutQuestionnaire(Date d, int indiceQuestionnaire)
+	
+	public int changerDateDebutQuestionnaire(Date d, int indiceQuestionnaire)
 	{
-		this.listeQuestionnaire.get(indiceQuestionnaire).setDateDebut(d);
+		int res;
+		if (this.listeQuestionnaire.get(indiceQuestionnaire) != null) //a tester
+		{
+			res = -1;
+		}else{
+			this.listeQuestionnaire.get(indiceQuestionnaire).setDateDebut(d);
+			res = indiceQuestionnaire;
+		}
+		return res;
 	}
-	public void changerDateFinQuestionnaire(Date d, int indiceQuestionnaire)
+	
+	public int changerDateFinQuestionnaire(Date d, int indiceQuestionnaire)
 	{
-		this.listeQuestionnaire.get(indiceQuestionnaire).setDateFin(d);
+		int res;
+		if (this.listeQuestionnaire.get(indiceQuestionnaire) != null) //a tester
+		{
+			res = -1;
+		}else{
+			this.listeQuestionnaire.get(indiceQuestionnaire).setDateFin(d);
+			res = indiceQuestionnaire;
+		}
+		return res;
 	}
-	public void supprimerQuestionnaire(int indiceQuestonnaire)
+	
+	public int supprimerQuestionnaire(int indiceQuestonnaire)
 	{
-		this.listeQuestionnaire.remove(indiceQuestonnaire);
+		int res;
+		if (this.listeQuestionnaire.get(indiceQuestionnaire) != null) //a tester
+		{
+			res = -1;
+		}else{
+			this.listeQuestionnaire.remove(indiceQuestonnaire);
+			res = indiceQuestionnaire;
+		}
+		return res;
 	}
-	public void ajouterQuestion(int indiceQuestionnaire, String intitule, boolean defaut)
+	
+	public int ajouterQuestion(int indiceQuestionnaire, String intitule, boolean defaut)
 	{
-		this.listeQuestionnaire.get(indiceQuestionnaire).ajouterQuestion(intitule, defaut);
+		int res;
+		if (this.listeQuestionnaire.get(indiceQuestionnaire) != null) //a tester
+		{
+			res = -1;
+		}else{
+			this.listeQuestionnaire.get(indiceQuestionnaire).ajouterQuestion(intitule, defaut);
+			res = indiceQuestionnaire;
+		}
+		return res;
 	}
+	////////////////////A FINIR LE RESTE
 	public void supprimerQuestion(int indiceQuestionnaire, int indiceQuestion)
 	{
 		this.listeQuestionnaire.get(indiceQuestionnaire).supprimerQuestion(indiceQuestion);
