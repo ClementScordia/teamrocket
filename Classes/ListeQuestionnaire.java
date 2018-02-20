@@ -20,46 +20,6 @@ public class ListeQuestionnaire {
 		this.indiceQuestionnaire=-1;
 	}
 	
-	
-	
-	
-//	public static boolean isDateGood(Questionnaire q)
-//	{
-//		boolean test;
-//		//String dateD = q.getDateDebut()+"/"+q.getDateDebut().getMonth()+"/"+q.getDateDebut().getYear();
-//		SimpleDateFormat sdf = new SimpleDateFormat();
-//		
-//		
-//		//test = dateValidator.isThisDateValid(dateD, "dd/MM/yyyy");
-//		//System.out.println("DATE DEB : "+test);
-//		boolean erreur = true;
-//		
-//		try{
-//			Calendar c = new GregorianCalendar(q.getDateDebut().getDay(),q.getDateDebut().getMonth(),q.getDateDebut().getYear());
-//			c.getTime();
-//			
-//			/*DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//	        String dateD = formatter.format(q.getDateDebut());
-//	        System.out.println("Today : " + dateD);*/
-//	        
-//		}catch(Exception e)
-//		{
-//			erreur = false;
-//			System.out.println("Erreur date debut");
-//		}
-//		
-//		try{
-//			Calendar c = new GregorianCalendar(q.getDateFin().getDay(),q.getDateFin().getMonth(),q.getDateFin().getYear());
-//			c.getTime();
-//		}catch(Exception e)
-//		{
-//			erreur = false;
-//			System.out.println("Erreur date fin");
-//		}
-//		return erreur;
-//		
-//	}
-	
 	public boolean isDateOk(Date dateDeb, Date dateFin)
 	{
 		boolean ok = true;
@@ -114,6 +74,15 @@ public class ListeQuestionnaire {
 	{
 		this.listeQuestionnaire.get(indiceQuestionnaire).modifierNomQuestion(nom, indiceQuestion);
 	}
+	public void setEtatQuestionnaire(int indiceQuestionnaire, Questionnaire.Etat etat)
+	{
+		this.listeQuestionnaire.get(indiceQuestionnaire).setEtat(etat);
+	}
+	
+
+
+
+
 	public void modifierValeurDefaultQuestion(boolean value, int indiceQuestionnaire, int indiceQuestion)
 	{
 		this.listeQuestionnaire.get(indiceQuestionnaire).modifierValeurDefaultQuestion(value, indiceQuestion);
@@ -137,12 +106,25 @@ public class ListeQuestionnaire {
 	}
 	
 	
+	public ArrayList<Questionnaire> getListeQuestionnaire() {
+		return listeQuestionnaire;
+	}
+
+
+
+
+	public void setListeQuestionnaire(ArrayList<Questionnaire> listeQuestionnaire) {
+		this.listeQuestionnaire = listeQuestionnaire;
+	}
+	
+	
 	public static void main(String[] args) {
 		
 		
 		Date dateDeb = new Date(2017-1900,1,1);
 		Date dateFin = new Date(2018-1900,0,28);
 		Date test = new Date (2000-1900,0,1);
+	
 		ListeQuestionnaire lq = new ListeQuestionnaire();
 		lq.nouveauQuestionnaire("quest1",dateDeb,dateFin);
 		//System.out.println("INDICE : "+lq.indiceQuestionnaire);
