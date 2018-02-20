@@ -30,14 +30,20 @@ public class Reponse {
 	}
 
 	void modifierReponse(int row, boolean nvlValeur) {
-		this.rep_listeReponse.set(row, nvlValeur);
+		if((row<=this.taillemax)&&(row>=0))
+		{
+			this.rep_listeReponse.set(row,nvlValeur);
+		}
+		else
+		{
+			System.out.println("Numéro de ligne invalide");
+		}
 	}
-	
-	ArrayList<Boolean> getRepListe()
-	{
+
+	ArrayList<Boolean> getRepListe() {
 		return this.rep_listeReponse;
 	}
-	
+
 	Date getRepDate() {
 		return this.rep_datereponse;
 	}
@@ -48,5 +54,8 @@ public class Reponse {
 		} else {
 			this.rep_datereponse = nvlleDate;
 		}
+
 	}
+	
+	
 }
