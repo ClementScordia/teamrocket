@@ -1,14 +1,19 @@
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Scanner;
 
 
 public class Questionnaire {
 	
-	//private String[] listeEtat = {"creation","enCours","arrete","fini"};
-	private String etat;
+	
+	public enum Etat{
+		cree,
+		enCours,
+		arret,
+		fini
+		
+	};
+	
+	private Etat etat;
 	private String nom;
 	private Date dateDebut;
 	private Date dateFin;
@@ -26,9 +31,9 @@ public class Questionnaire {
 		this.nom=nom;
 		this.dateDebut=dateD;
 		this.dateFin=dateF;
-		this.etat = "creation";
 		this.listeQuestion = new ArrayList<Question>();	
 		this.indiceQuestion=0;
+		this.etat = Etat.cree;
 	}
 	
 	
@@ -88,13 +93,25 @@ public class Questionnaire {
 	
 	
 	
-	public String getEtat() {
+	
+
+	public Etat getEtat() {
 		return etat;
 	}
 
 
-	public void setEtat(String etat) {
+	public void setEtat(Etat etat) {
 		this.etat = etat;
+	}
+
+
+	public int getIndiceQuestion() {
+		return indiceQuestion;
+	}
+
+
+	public void setIndiceQuestion(int indiceQuestion) {
+		this.indiceQuestion = indiceQuestion;
 	}
 
 
@@ -128,12 +145,12 @@ public class Questionnaire {
 	}
 
 
-	public ArrayList getListeQuestion() {
+	public ArrayList<Question> getListeQuestion() {
 		return listeQuestion;
 	}
 
 
-	public void setListeQuestion(ArrayList listeQuestion) {
+	public void setListeQuestion(ArrayList<Question> listeQuestion) {
 		this.listeQuestion = listeQuestion;
 	}
 	
