@@ -28,22 +28,26 @@ public class Reponse {
 		this.taillemax = listeRepDefaut.size();
 	}
 
-	void addReponse(boolean nvBooleen) {
+	boolean addReponse(boolean nvBooleen) {
 		if (this.taillemax >= this.rep_listeReponse.size()) {
 			this.rep_listeReponse.add(nvBooleen);
+			return true;
 		} else {
 			System.out.println("Total de réponse atteint");
+			return false;
 		}
 	}
 
-	void modifierReponse(int row, boolean nvlValeur) {
+	boolean modifierReponse(int row, boolean nvlValeur) {
 		if((row<=this.taillemax)&&(row>=0))
 		{
 			this.rep_listeReponse.set(row,nvlValeur);
+			return true;
 		}
 		else
 		{
 			System.out.println("Numéro de ligne invalide");
+			return false;
 		}
 	}
 
@@ -55,11 +59,13 @@ public class Reponse {
 		return this.rep_datereponse;
 	}
 
-	void setRepDate(Date nvlleDate) {
+	boolean setRepDate(Date nvlleDate) {
 		if (this.rep_datereponse.after(nvlleDate)) {
 			System.out.println("La nouvelle date ne peut pas être avant l'ancienne date");
+			return false;
 		} else {
 			this.rep_datereponse = nvlleDate;
+			return true;
 		}
 
 	}
